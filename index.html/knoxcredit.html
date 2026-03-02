@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KnoxCredit – Personal, Home, Car, Business Loans Pan India</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#1a4fa0;--blue2:#1565c0;--blue3:#0d47a1;
+  --sky:#e8f1ff;--orange:#f57c00;--orange2:#ff9800;
+  --white:#fff;--gray:#f5f7fa;--text:#1a2340;
+  --muted:#6b7a99;--border:#dde6f5;
+}
+body{font-family:'Poppins',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+
+.topbar{background:var(--blue3);padding:7px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.topbar-left{display:flex;gap:20px;flex-wrap:wrap}
+.topbar a,.topbar span{color:rgba(255,255,255,0.85);font-size:12.5px;text-decoration:none;display:flex;align-items:center;gap:5px}
+.topbar a:hover{color:#fff}
+.topbar-right{display:flex;gap:10px}
+.topbar-right a{background:var(--orange);color:#fff;padding:5px 14px;border-radius:4px;font-size:12px;font-weight:600;text-decoration:none}
+
+nav{background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.08);position:sticky;top:0;z-index:999}
+.nav-inner{max-width:1250px;margin:0 auto;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-box{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;font-size:20px;font-weight:800;width:42px;height:42px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.logo-name{font-size:22px;font-weight:700;color:var(--blue)}
+.logo-name span{color:var(--orange)}
+.nav-menu{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-menu a{padding:8px 13px;font-size:13.5px;font-weight:500;color:var(--text);text-decoration:none;border-radius:5px;transition:background .2s}
+.nav-menu a:hover{background:var(--sky);color:var(--blue)}
+.nav-apply{background:linear-gradient(135deg,var(--orange),var(--orange2));color:#fff !important;padding:10px 22px !important;border-radius:6px;font-weight:600 !important}
+
+.hero{background:linear-gradient(135deg,var(--blue3) 0%,var(--blue) 55%,#1976d2 100%);padding:55px 5% 65px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-60px;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,0.04)}
+.hero::after{content:'';position:absolute;bottom:-80px;left:5%;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,0.03)}
+.hero-inner{max-width:1250px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:48px;align-items:center;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:6px 14px;border-radius:20px;font-size:12.5px;font-weight:500;margin-bottom:20px}
+.hero h1{font-size:clamp(1.9rem,3.2vw,2.9rem);color:#fff;line-height:1.28;font-weight:700;margin-bottom:16px}
+.hero h1 span{color:var(--orange2)}
+.hero-sub{color:rgba(255,255,255,0.8);font-size:15px;line-height:1.8;margin-bottom:26px;max-width:490px}
+.hero-feats{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:30px}
+.hf{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,0.9);font-size:13px}
+.hf::before{content:'✓';background:var(--orange);color:#fff;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:30px}
+.hstat-n{font-size:26px;font-weight:700;color:#fff}
+.hstat-n span{color:var(--orange2)}
+.hstat-l{font-size:11px;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:.5px}
+
+.form-card{background:#fff;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,0.28);padding:28px 26px}
+.fcard-head{background:linear-gradient(135deg,var(--orange),var(--orange2));border-radius:9px;padding:14px 18px;margin-bottom:20px;text-align:center}
+.fcard-head h3{color:#fff;font-size:16px;font-weight:700}
+.fcard-head p{color:rgba(255,255,255,0.85);font-size:12px;margin-top:3px}
+.fg{margin-bottom:13px}
+.fg label{display:block;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
+.fg input,.fg select{width:100%;padding:11px 13px;border:1.5px solid var(--border);border-radius:7px;font-family:'Poppins',sans-serif;font-size:13.5px;color:var(--text);outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus{border-color:var(--blue)}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.fsub{width:100%;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;border:none;padding:13px;border-radius:8px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;cursor:pointer;margin-top:4px;transition:box-shadow .2s,transform .2s}
+.fsub:hover{box-shadow:0 6px 20px rgba(26,79,160,.35);transform:translateY(-1px)}
+.ftrust{text-align:center;font-size:11.5px;color:var(--muted);margin-top:9px}
+
+.banks-strip{background:#fff;padding:18px 5%;border-bottom:1px solid var(--border)}
+.banks-inner{max-width:1250px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.banks-lbl{font-size:11.5px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;white-space:nowrap}
+.bchips{display:flex;flex-wrap:wrap;gap:7px}
+.bchip{background:var(--gray);border:1px solid var(--border);border-radius:5px;padding:5px 12px;font-size:12px;font-weight:600;color:var(--blue)}
+
+section.services{padding:65px 5%;background:var(--gray)}
+section.whyus,section.process2,section.eligibility,section.faqsec{padding:65px 5%;background:#fff}
+section.emicl{padding:65px 5%;background:var(--blue3)}
+section.testimonials{padding:65px 5%;background:var(--gray)}
+
+.sec-hd{text-align:center;margin-bottom:44px}
+.sec-tag{font-size:11.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.sec-ttl{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:700;color:var(--text);line-height:1.3}
+.sec-ttl span{color:var(--blue)}
+.sec-dsc{font-size:14px;color:var(--muted);margin-top:10px;max-width:550px;margin-left:auto;margin-right:auto;line-height:1.8}
+
+.srv-grid{max-width:1250px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.srv{background:#fff;border-radius:12px;padding:26px 20px;border:1.5px solid var(--border);text-align:center;transition:all .25s;cursor:pointer;position:relative;overflow:hidden}
+.srv::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--orange));transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.srv:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(26,79,160,.12);border-color:var(--blue)}
+.srv:hover::after{transform:scaleX(1)}
+.srv-ic{width:58px;height:58px;border-radius:14px;background:var(--sky);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 14px}
+.srv h4{font-size:14.5px;font-weight:600;color:var(--text);margin-bottom:7px}
+.srv p{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:12px}
+.srv-rate{display:inline-block;background:var(--sky);color:var(--blue);padding:3px 11px;border-radius:4px;font-size:11.5px;font-weight:600}
+.srv-lnk{display:block;margin-top:10px;font-size:12px;font-weight:600;color:var(--blue);text-decoration:none}
+
+.why-wrap{max-width:1250px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.why-stats-col{background:linear-gradient(135deg,var(--sky),#d0e4ff);border-radius:16px;padding:36px;display:flex;flex-direction:column;gap:14px}
+.wstat{background:#fff;border-radius:10px;padding:18px;box-shadow:0 4px 14px rgba(26,79,160,.1);display:flex;align-items:center;gap:14px}
+.wstat-ic{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--blue2));display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0}
+.wstat-n{font-size:21px;font-weight:700;color:var(--text)}
+.wstat-l{font-size:12px;color:var(--muted);margin-top:1px}
+.why-pts{display:flex;flex-direction:column;gap:16px;margin-top:24px}
+.wpt{display:flex;align-items:flex-start;gap:13px}
+.wpt-ic{width:40px;height:40px;border-radius:9px;background:var(--sky);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.wpt-t{font-size:14.5px;font-weight:600;color:var(--text);margin-bottom:3px}
+.wpt-d{font-size:13px;color:var(--muted);line-height:1.7}
+
+.psteps{max-width:1250px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.psteps::before{content:'';position:absolute;top:33px;left:calc(12.5% + 22px);right:calc(12.5% + 22px);height:2px;background:linear-gradient(90deg,var(--blue),var(--orange));z-index:0}
+.pst{text-align:center;padding:0 10px;position:relative;z-index:1}
+.pst-n{width:66px;height:66px;border-radius:50%;background:#fff;border:3px solid var(--blue);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:var(--blue);margin:0 auto 15px;box-shadow:0 4px 14px rgba(26,79,160,.14)}
+.pst:first-child .pst-n{background:var(--blue);color:#fff}
+.pst h4{font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px}
+.pst p{font-size:12px;color:var(--muted);line-height:1.65}
+
+.emi-grid{max-width:1250px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px}
+.emi-panel{background:#fff;border-radius:14px;padding:30px}
+.sg{margin-bottom:20px}
+.sg-row{display:flex;justify-content:space-between;margin-bottom:7px}
+.sg-l{font-size:13px;font-weight:500;color:var(--text)}
+.sg-v{font-size:13px;font-weight:700;color:var(--blue)}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:var(--border);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:19px;height:19px;border-radius:50%;background:var(--blue);border:3px solid #fff;box-shadow:0 2px 8px rgba(26,79,160,.3);cursor:pointer}
+.emi-out{background:linear-gradient(135deg,var(--blue),var(--blue2));border-radius:12px;padding:22px;text-align:center;margin-top:18px}
+.emi-l{font-size:11px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1px}
+.emi-big{font-size:36px;font-weight:700;color:#fff;margin:4px 0}
+.emi-bdn{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.ebi{background:rgba(255,255,255,.08);border-radius:8px;padding:11px}
+.ebi-v{font-size:14px;font-weight:600;color:#fff}
+.ebi-l{font-size:11px;color:rgba(255,255,255,.5);margin-top:1px}
+.emi-p2{background:rgba(255,255,255,.07);border-radius:14px;padding:30px;color:#fff}
+.emi-p2 h3{font-size:20px;font-weight:700;margin-bottom:10px}
+.emi-p2 p{font-size:14px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:18px}
+.etips{display:flex;flex-direction:column;gap:13px}
+.etip{display:flex;align-items:flex-start;gap:11px}
+.etip-ic{width:33px;height:33px;background:rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.etip strong{display:block;font-size:13px;color:#fff;margin-bottom:2px}
+.etip span{font-size:12px;color:rgba(255,255,255,.6)}
+
+.elig-wrap{max-width:1250px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.eblk{margin-bottom:28px}
+.eblk h3{font-size:16px;font-weight:700;color:var(--text);margin-bottom:14px;padding-bottom:9px;border-bottom:2px solid var(--sky)}
+.erow{display:flex;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid var(--gray);font-size:13.5px}
+.erow .eck{color:var(--blue);font-size:14px}
+.eib{background:var(--sky);border-radius:11px;padding:22px;margin-top:18px}
+.eib h4{font-size:14.5px;font-weight:600;color:var(--blue);margin-bottom:9px}
+.eib p{font-size:13px;color:var(--text);line-height:1.75}
+
+.tgrid{max-width:1250px;margin:20px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tc{background:#fff;border-radius:12px;padding:24px;border:1.5px solid var(--border)}
+.tc-stars{color:#f5b400;font-size:13px;margin-bottom:13px}
+.tc-txt{font-size:13px;color:var(--text);line-height:1.8;font-style:italic;margin-bottom:16px}
+.tc-auth{display:flex;align-items:center;gap:11px;padding-top:13px;border-top:1px solid var(--border)}
+.tc-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--orange));color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.tc-nm{font-size:13.5px;font-weight:600;color:var(--text)}
+.tc-lc{font-size:11px;color:var(--muted);margin-top:1px}
+
+.faq-wrap{max-width:850px;margin:0 auto}
+.fi{border:1.5px solid var(--border);border-radius:9px;margin-bottom:9px;overflow:hidden}
+.fq{width:100%;background:#fff;border:none;padding:15px 18px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;color:var(--text);text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.fq:hover,.fq.open{background:var(--sky);color:var(--blue)}
+.fq span{font-size:18px;transition:transform .2s}
+.fq.open span{transform:rotate(45deg)}
+.fa{display:none;padding:0 18px 14px;font-size:13.5px;color:var(--muted);line-height:1.8}
+.fa.open{display:block}
+
+.cta-ban{background:linear-gradient(135deg,var(--orange),#e65100);padding:58px 5%;text-align:center}
+.cta-ban h2{font-size:clamp(1.5rem,2.4vw,2.1rem);font-weight:700;color:#fff;margin-bottom:11px}
+.cta-ban p{font-size:15px;color:rgba(255,255,255,.85);margin-bottom:26px}
+.cta-btns{display:flex;justify-content:center;gap:13px;flex-wrap:wrap}
+.cb1{background:#fff;color:var(--orange);padding:13px 26px;border-radius:7px;font-weight:700;font-size:14.5px;text-decoration:none}
+.cb2{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);padding:13px 26px;border-radius:7px;font-weight:600;font-size:14.5px;text-decoration:none}
+
+footer{background:#0d1b35;padding:52px 5% 22px}
+.fg-grid{max-width:1250px;margin:0 auto;display:grid;grid-template-columns:2.2fr 1fr 1fr 1.3fr;gap:38px;padding-bottom:38px;border-bottom:1px solid rgba(255,255,255,.08)}
+.fab p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.9;margin-top:11px}
+.fcontact{margin-top:14px;display:flex;flex-direction:column;gap:7px}
+.fcontact a{font-size:13px;color:rgba(255,255,255,.6);text-decoration:none;display:flex;align-items:center;gap:6px}
+.fcontact a:hover{color:var(--orange2)}
+.fcol h5{font-size:12.5px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fcol ul a{font-size:13px;color:rgba(255,255,255,.55);text-decoration:none}
+.fcol ul a:hover{color:var(--orange2)}
+.fbn h5{font-size:12.5px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.8px;margin-bottom:13px}
+.fbc{display:flex;flex-wrap:wrap;gap:6px}
+.fbch{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:4px 10px;border-radius:5px;font-size:11px;font-weight:500}
+.fbot{max-width:1250px;margin:18px auto 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:12px;color:rgba(255,255,255,.4)}
+.fbot a{color:rgba(255,255,255,.4);text-decoration:none}
+.fdis{max-width:1250px;margin:14px auto 0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:11px 15px;font-size:11.5px;color:rgba(255,255,255,.35);line-height:1.7}
+
+.wa{position:fixed;bottom:22px;right:22px;z-index:1000;background:#25d366;border-radius:50%;width:54px;height:54px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(37,211,102,.5);text-decoration:none;transition:transform .2s}
+.wa:hover{transform:scale(1.1)}
+.wa svg{width:27px;height:27px;fill:#fff}
+.toast{position:fixed;bottom:86px;right:22px;background:#22c55e;color:#fff;padding:12px 17px;border-radius:9px;font-size:13.5px;font-weight:500;box-shadow:0 4px 18px rgba(0,0,0,.2);display:none;z-index:9999;align-items:center;gap:7px}
+
+@media(max-width:1024px){
+  .srv-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-inner{grid-template-columns:1fr}
+  .form-card{display:none}
+  .why-wrap,.emi-grid,.elig-wrap{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .topbar{flex-direction:column;align-items:flex-start}
+  .nav-menu{display:none}
+  .psteps{grid-template-columns:1fr 1fr}
+  .psteps::before{display:none}
+  .tgrid{grid-template-columns:1fr}
+  .fg-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <span>📞 +91-XXXXXXXXXX</span>
+    <a href="mailto:md@knoxcredit.in">✉️ md@knoxcredit.in</a>
+    <span>🕘 Mon–Sat: 9AM – 7PM</span>
+  </div>
+  <div class="topbar-right">
+    <a href="#contact">Apply Now</a>
+    <a href="https://wa.me/919XXXXXXXXX" target="_blank">WhatsApp</a>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-box">K</div>
+      <span class="logo-name">Knox<span>Credit</span></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#services">Loan Products</a></li>
+      <li><a href="#eligibility">Eligibility</a></li>
+      <li><a href="#emi">EMI Calculator</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact" class="nav-apply">Apply Now →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">🇮🇳 Trusted Loan Advisor — Pan India</div>
+      <h1>Fast Loans. Best Rates.<br><span>Pan-India</span> Coverage.</h1>
+      <p class="hero-sub">KnoxCredit connects you with 25+ leading banks & NBFCs to secure the best loan deal — personal, business, home, balance transfer & more. Free service, zero hidden charges.</p>
+      <div class="hero-feats">
+        <div class="hf">Personal Loan from 10.5%</div>
+        <div class="hf">Business Loan up to ₹2 Cr</div>
+        <div class="hf">Home Loan from 8.4%</div>
+        <div class="hf">Balance Transfer Available</div>
+        <div class="hf">48-Hour Disbursal</div>
+        <div class="hf">Zero Service Fee</div>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hstat-n">₹1.5<span>Cr+</span></div><div class="hstat-l">Loans Disbursed</div></div>
+        <div><div class="hstat-n">500<span>+</span></div><div class="hstat-l">Happy Clients</div></div>
+        <div><div class="hstat-n">25<span>+</span></div><div class="hstat-l">Bank Partners</div></div>
+        <div><div class="hstat-n">48<span>hr</span></div><div class="hstat-l">Avg Approval</div></div>
+      </div>
+    </div>
+
+    <div class="form-card" id="contact">
+      <div class="fcard-head">
+        <h3>Get a Free Loan Quote</h3>
+        <p>Callback within 30 minutes · No CIBIL impact</p>
+      </div>
+      <div class="fg2">
+        <div class="fg"><label>Full Name *</label><input id="fn" type="text" placeholder="Your name"></div>
+        <div class="fg"><label>Mobile No. *</label><input id="fp" type="tel" placeholder="98XXXXXXXX"></div>
+      </div>
+      <div class="fg">
+        <label>Loan Type *</label>
+        <select id="fl">
+          <option value="">— Select Loan Type —</option>
+          <option>Personal Loan</option>
+          <option>Home Loan</option>
+          <option>Car / Vehicle Loan</option>
+          <option>Business / MSME Loan</option>
+          <option>Education Loan</option>
+          <option>Balance Transfer</option>
+          <option>Overdraft Facility</option>
+          <option>Loan Against Property (LAP)</option>
+        </select>
+      </div>
+      <div class="fg2">
+        <div class="fg"><label>Loan Amount</label>
+          <select id="fa">
+            <option>₹1L – ₹5L</option><option>₹5L – ₹20L</option>
+            <option>₹20L – ₹50L</option><option>₹50L – ₹1Cr</option><option>Above ₹1Cr</option>
+          </select>
+        </div>
+        <div class="fg"><label>Employment</label>
+          <select id="fe">
+            <option>Salaried</option><option>Self-Employed</option>
+            <option>Business Owner</option><option>Professional</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label>City</label><input id="fc" type="text" placeholder="Your city"></div>
+      <button class="fsub" onclick="submitForm()">Check Eligibility & Get Best Rate →</button>
+      <div class="ftrust">🔒 100% Secure · Free Service · No Spam</div>
+    </div>
+  </div>
+</section>
+
+<div class="banks-strip">
+  <div class="banks-inner">
+    <span class="banks-lbl">Bank Partners:</span>
+    <div class="bchips">
+      <span class="bchip">HDFC Bank</span><span class="bchip">ICICI Bank</span><span class="bchip">Axis Bank</span>
+      <span class="bchip">SBI</span><span class="bchip">Kotak</span><span class="bchip">Bajaj Finserv</span>
+      <span class="bchip">Tata Capital</span><span class="bchip">Poonawalla</span><span class="bchip">Fullerton</span>
+      <span class="bchip">Yes Bank</span><span class="bchip">IDFC First</span><span class="bchip">HDB Financial</span>
+    </div>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="sec-hd">
+    <div class="sec-tag">Our Products</div>
+    <div class="sec-ttl">Loan Solutions for <span>Every Need</span></div>
+    <p class="sec-dsc">From personal emergencies to business expansion — KnoxCredit finds the right lender at the lowest rate for you. Pan-India service.</p>
+  </div>
+  <div class="srv-grid">
+    <div class="srv"><div class="srv-ic">👤</div><h4>Personal Loan</h4><p>Instant approval, no collateral. Medical, travel, wedding or any personal need covered.</p><span class="srv-rate">From 10.5% p.a.</span><a href="#contact" class="srv-lnk">Apply Now →</a></div>
+    <div class="srv"><div class="srv-ic">🏠</div><h4>Home Loan</h4><p>Buy your dream home with low EMI and flexible tenure up to 30 years.</p><span class="srv-rate">From 8.4% p.a.</span><a href="#contact" class="srv-lnk">Apply Now →</a></div>
+    <div class="srv"><div class="srv-ic">🚗</div><h4>Car / Vehicle Loan</h4><p>New or used car loans with quick processing and minimal documentation required.</p><span class="srv-rate">From 8.99% p.a.</span><a href="#contact" class="srv-lnk">Apply Now →</a></div>
+    <div class="srv"><div class="srv-ic">🏢</div><h4>Business / MSME Loan</h4><p>Collateral-free working capital and term loans for MSMEs and growing businesses.</p><span class="srv-rate">From 12% p.a.</span><a href="#contact" class="srv-lnk">Apply Now →</a></div>
+    <div class="srv"><div class="srv-ic">🎓</div><h4>Education Loan</h4><p>Fund higher education in India or abroad with flexible repayment options.</p><span class="srv-rate">From 9.5% p.a.</span><a href="#contact" class="srv-lnk">Apply Now →</a></div>
+    <div class="srv"><div class="srv-ic">🔄</div><h4>Balance Transfer</h4><p>Switch high-interest loans to a lower rate and reduce your monthly EMI burden.</p><span class="srv-rate">Save up to 5%</span><a href="#contact" class="srv-lnk">Apply Now →</a></div>
+    <div class="srv"><div class="srv-ic">💳</div><h4>Overdraft Facility</h4><p>Flexible credit line for businesses — pay interest only on amount you actually use.</p><span class="srv-rate">From 11% p.a.</span><a href="#contact" class="srv-lnk">Apply Now →</a></div>
+    <div class="srv"><div class="srv-ic">🏗️</div><h4>Loan Against Property</h4><p>Unlock your property's value to fund big business or personal financial needs.</p><span class="srv-rate">From 9% p.a.</span><a href="#contact" class="srv-lnk">Apply Now →</a></div>
+  </div>
+</section>
+
+<section class="whyus" id="about">
+  <div class="why-wrap" style="max-width:1250px;margin:0 auto">
+    <div class="why-stats-col">
+      <div class="wstat"><div class="wstat-ic">🏦</div><div><div class="wstat-n">25+ Banks</div><div class="wstat-l">Empanelled Lenders</div></div></div>
+      <div class="wstat"><div class="wstat-ic">⚡</div><div><div class="wstat-n">48 Hours</div><div class="wstat-l">Average Disbursal</div></div></div>
+      <div class="wstat"><div class="wstat-ic">💰</div><div><div class="wstat-n">₹1.5 Cr+</div><div class="wstat-l">Loans Disbursed</div></div></div>
+      <div class="wstat"><div class="wstat-ic">🌍</div><div><div class="wstat-n">Pan India</div><div class="wstat-l">Service Coverage</div></div></div>
+    </div>
+    <div>
+      <div class="sec-tag">Why KnoxCredit</div>
+      <div class="sec-ttl">India's Trusted<br><span>Loan Advisory Partner</span></div>
+      <p style="margin-top:11px;font-size:14px;color:var(--muted);line-height:1.8">KnoxCredit is a premier DSA (Direct Selling Agent) empanelled with India's top banks and NBFCs. We work for you — finding the best loan, negotiating the rate, and handling all paperwork end-to-end.</p>
+      <div class="why-pts">
+        <div class="wpt"><div class="wpt-ic">🆓</div><div><div class="wpt-t">Zero Cost to You</div><div class="wpt-d">Our service is 100% free for borrowers. Banks pay us — you pay nothing extra.</div></div></div>
+        <div class="wpt"><div class="wpt-ic">📊</div><div><div class="wpt-t">Compare Multiple Offers</div><div class="wpt-d">We show best rates from 25+ lenders side by side — you choose what works.</div></div></div>
+        <div class="wpt"><div class="wpt-ic">📄</div><div><div class="wpt-t">End-to-End Documentation</div><div class="wpt-d">We handle all paperwork, bank follow-ups, and keep you updated at every step.</div></div></div>
+        <div class="wpt"><div class="wpt-ic">🔒</div><div><div class="wpt-t">Data Security</div><div class="wpt-d">Your information is encrypted and only shared with lenders you approve.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process2">
+  <div class="sec-hd">
+    <div class="sec-tag">Simple Process</div>
+    <div class="sec-ttl">Get Your Loan in <span>4 Easy Steps</span></div>
+  </div>
+  <div class="psteps" style="max-width:1250px;margin:0 auto">
+    <div class="pst"><div class="pst-n">1</div><h4>Fill the Form</h4><p>Share basic details online or WhatsApp us. Takes less than 2 minutes.</p></div>
+    <div class="pst"><div class="pst-n">2</div><h4>Free Consultation</h4><p>Our advisor calls within 30 min, understands your need and finds the best match.</p></div>
+    <div class="pst"><div class="pst-n">3</div><h4>Submit Documents</h4><p>We guide you on minimal docs required and handle the entire bank submission.</p></div>
+    <div class="pst"><div class="pst-n">4</div><h4>Loan Disbursed</h4><p>Money in your account within 48 hours. We track it all the way to the end.</p></div>
+  </div>
+</section>
+
+<section class="emicl" id="emi">
+  <div class="sec-hd">
+    <div class="sec-tag" style="color:var(--orange2)">Planning Tool</div>
+    <div class="sec-ttl" style="color:#fff">EMI Calculator</div>
+    <p class="sec-dsc" style="color:rgba(255,255,255,.65)">Estimate your monthly repayment instantly. Adjust and plan before you apply.</p>
+  </div>
+  <div class="emi-grid">
+    <div class="emi-panel">
+      <div class="sg"><div class="sg-row"><span class="sg-l">Loan Amount</span><span class="sg-v" id="sv1">₹5,00,000</span></div><input type="range" min="50000" max="5000000" step="50000" value="500000" oninput="calcEMI()" id="s1"></div>
+      <div class="sg"><div class="sg-row"><span class="sg-l">Rate of Interest</span><span class="sg-v" id="sv2">12% p.a.</span></div><input type="range" min="7" max="24" step="0.5" value="12" oninput="calcEMI()" id="s2"></div>
+      <div class="sg"><div class="sg-row"><span class="sg-l">Loan Tenure</span><span class="sg-v" id="sv3">36 Months</span></div><input type="range" min="6" max="84" step="6" value="36" oninput="calcEMI()" id="s3"></div>
+      <div class="emi-out">
+        <div class="emi-l">Monthly EMI</div>
+        <div class="emi-big" id="emiBig">₹16,607</div>
+        <div class="emi-bdn">
+          <div class="ebi"><div class="ebi-v" id="eP">₹5,00,000</div><div class="ebi-l">Principal</div></div>
+          <div class="ebi"><div class="ebi-v" id="eI">₹97,860</div><div class="ebi-l">Total Interest</div></div>
+          <div class="ebi"><div class="ebi-v" id="eT">₹5,97,860</div><div class="ebi-l">Total Payable</div></div>
+          <div class="ebi"><div class="ebi-v" id="eTn">36 months</div><div class="ebi-l">Tenure</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="emi-p2">
+      <h3>Want a Rate Even Lower?</h3>
+      <p>These are indicative figures. KnoxCredit negotiates with 25+ lenders on your behalf to often secure rates 1–2% lower than what banks offer walk-in customers.</p>
+      <div class="etips">
+        <div class="etip"><div class="etip-ic">📉</div><div><strong>Rate Negotiation</strong><span>Our volume with banks gets you better rates</span></div></div>
+        <div class="etip"><div class="etip-ic">🔄</div><div><strong>Balance Transfer Savings</strong><span>Existing loan? Check if switching saves money</span></div></div>
+        <div class="etip"><div class="etip-ic">📋</div><div><strong>No Hidden Fees</strong><span>All charges disclosed before you sign anything</span></div></div>
+        <div class="etip"><div class="etip-ic">🆓</div><div><strong>Free Pre-Approval Check</strong><span>Know eligibility without any CIBIL impact</span></div></div>
+      </div>
+      <br>
+      <a href="#contact" style="display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#f57c00,#ff9800);color:#fff;padding:12px 22px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;margin-top:6px">Apply Now — Free Service →</a>
+    </div>
+  </div>
+</section>
+
+<section class="eligibility" id="eligibility">
+  <div class="elig-wrap" style="max-width:1250px;margin:0 auto">
+    <div>
+      <div class="sec-tag">Check Eligibility</div>
+      <div class="sec-ttl">Who Can <span>Apply?</span></div>
+      <p style="margin-top:10px;font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:22px">Basic eligibility criteria for most loan products through KnoxCredit.</p>
+      <div class="eblk">
+        <h3>For Salaried Individuals</h3>
+        <div class="erow"><span class="eck">✅</span> Age: 21 to 60 years</div>
+        <div class="erow"><span class="eck">✅</span> Minimum salary ₹15,000/month</div>
+        <div class="erow"><span class="eck">✅</span> At least 6 months in current job</div>
+        <div class="erow"><span class="eck">✅</span> CIBIL score 650+ preferred</div>
+        <div class="erow"><span class="eck">✅</span> Valid bank account & KYC documents</div>
+      </div>
+      <div class="eblk">
+        <h3>For Self-Employed / Business</h3>
+        <div class="erow"><span class="eck">✅</span> Age: 25 to 65 years</div>
+        <div class="erow"><span class="eck">✅</span> Business operational for 2+ years</div>
+        <div class="erow"><span class="eck">✅</span> Annual income ₹2L+ (ITR proof)</div>
+        <div class="erow"><span class="eck">✅</span> CIBIL score 650+ preferred</div>
+        <div class="erow"><span class="eck">✅</span> GST registration (for business loans)</div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-tag">Documents Required</div>
+      <div class="sec-ttl">Minimal <span>Documents</span></div>
+      <p style="margin-top:10px;font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:22px">We help prepare the right document set so your application doesn't get rejected.</p>
+      <div class="eblk">
+        <h3>Identity & Address Proof</h3>
+        <div class="erow"><span class="eck">📄</span> Aadhaar Card</div>
+        <div class="erow"><span class="eck">📄</span> PAN Card</div>
+        <div class="erow"><span class="eck">📄</span> Passport / Voter ID / Driving License</div>
+      </div>
+      <div class="eblk">
+        <h3>Income Proof</h3>
+        <div class="erow"><span class="eck">📄</span> Salary slips (last 3 months)</div>
+        <div class="erow"><span class="eck">📄</span> Bank statements (last 6 months)</div>
+        <div class="erow"><span class="eck">📄</span> ITR (last 2 years for self-employed)</div>
+      </div>
+      <div class="eib">
+        <h4>💡 Pro Tip from KnoxCredit</h4>
+        <p>Low CIBIL score? Don't worry. We have NBFC partners who approve loans for scores as low as 600. Call us for a free eligibility consultation before applying anywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="sec-hd">
+    <div class="sec-tag">Client Reviews</div>
+    <div class="sec-ttl">What Our <span>Clients Say</span></div>
+  </div>
+  <div class="tgrid">
+    <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-txt">"Got my business loan of ₹45 lakhs approved in 3 days. The team handled all paperwork and secured a rate 2% lower than what my bank quoted directly. Brilliant service."</p><div class="tc-auth"><div class="tc-av">R</div><div><div class="tc-nm">Rajesh Agarwal</div><div class="tc-lc">Business Owner · Delhi</div></div></div></div>
+    <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-txt">"Was paying ₹42,000 EMI on my home loan. KnoxCredit arranged a balance transfer to HDFC — now I pay ₹34,500. That's ₹7,500 saved every single month!"</p><div class="tc-auth"><div class="tc-av">S</div><div><div class="tc-nm">Sunita Verma</div><div class="tc-lc">Homemaker · Faridabad</div></div></div></div>
+    <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-txt">"Personal loan of ₹10 lakh disbursed within 48 hours for a family emergency. Advisor was available on a Sunday evening and sorted everything out. Truly reliable."</p><div class="tc-auth"><div class="tc-av">A</div><div><div class="tc-nm">Amit Sharma</div><div class="tc-lc">IT Professional · Gurgaon</div></div></div></div>
+  </div>
+</section>
+
+<section class="faqsec">
+  <div class="faq-wrap" style="max-width:850px;margin:0 auto">
+    <div class="sec-hd">
+      <div class="sec-tag">Common Questions</div>
+      <div class="sec-ttl">Frequently Asked <span>Questions</span></div>
+    </div>
+    <br>
+    <div class="fi"><button class="fq" onclick="tfaq(this)">Does KnoxCredit charge any fees? <span>+</span></button><div class="fa">No, our service is completely free for borrowers. We earn a commission from the bank when your loan is disbursed. You pay us absolutely nothing.</div></div>
+    <div class="fi"><button class="fq" onclick="tfaq(this)">Will applying through KnoxCredit affect my CIBIL score? <span>+</span></button><div class="fa">Our initial eligibility check is a soft inquiry and does not affect your CIBIL score. Only when you formally apply (with your approval) does a hard inquiry occur.</div></div>
+    <div class="fi"><button class="fq" onclick="tfaq(this)">How fast can I get a personal loan? <span>+</span></button><div class="fa">For salaried individuals with good CIBIL scores, personal loans can be approved and disbursed within 24–48 hours. Business loans typically take 3–5 working days.</div></div>
+    <div class="fi"><button class="fq" onclick="tfaq(this)">Can I get a loan with a low CIBIL score? <span>+</span></button><div class="fa">Yes. KnoxCredit works with several NBFCs that approve loans for CIBIL scores from 600 onwards. Interest rates may be slightly higher, but we help find the best option available.</div></div>
+    <div class="fi"><button class="fq" onclick="tfaq(this)">Which cities does KnoxCredit serve? <span>+</span></button><div class="fa">KnoxCredit serves borrowers Pan-India. While headquartered in Faridabad / Delhi NCR, our digital-first model means we assist you from any city across India.</div></div>
+    <div class="fi"><button class="fq" onclick="tfaq(this)">What is a Balance Transfer and should I do it? <span>+</span></button><div class="fa">A balance transfer moves your existing loan to a new bank at a lower rate, reducing your EMI. It makes sense if your current rate is 2%+ higher than market. Call us for a free comparison.</div></div>
+  </div>
+</section>
+
+<section class="cta-ban">
+  <h2>Ready to Get the Best Loan Deal in India?</h2>
+  <p>Free Consultation · No CIBIL Impact · 25+ Bank Partners · Pan-India Service</p>
+  <div class="cta-btns">
+    <a href="#contact" class="cb1">Apply Now — It's Free →</a>
+    <a href="https://wa.me/919XXXXXXXXX?text=Hi, I need a loan consultation from KnoxCredit" class="cb2" target="_blank">💬 WhatsApp Us Now</a>
+  </div>
+</section>
+
+<footer>
+  <div class="fg-grid">
+    <div class="fab">
+      <a href="#" class="logo"><div class="logo-box">K</div><span class="logo-name">Knox<span>Credit</span></span></a>
+      <p>KnoxCredit is a premier loan DSA empanelled with 25+ leading banks and NBFCs across India. We help individuals and businesses secure loans at the best available rates — fast, transparent, and hassle-free.</p>
+      <div class="fcontact">
+        <a href="#">📞 +91-XXXXXXXXXX</a>
+        <a href="mailto:md@knoxcredit.in">✉️ md@knoxcredit.in</a>
+        <a href="mailto:sazzy@knoxcredit.in">✉️ sazzy@knoxcredit.in</a>
+        <a href="#">📍 Faridabad, Haryana | Pan India</a>
+      </div>
+    </div>
+    <div class="fcol">
+      <h5>Loan Products</h5>
+      <ul>
+        <li><a href="#">Personal Loan</a></li>
+        <li><a href="#">Home Loan</a></li>
+        <li><a href="#">Car / Vehicle Loan</a></li>
+        <li><a href="#">Business / MSME Loan</a></li>
+        <li><a href="#">Education Loan</a></li>
+        <li><a href="#">Balance Transfer</a></li>
+        <li><a href="#">Overdraft Facility</a></li>
+        <li><a href="#">Loan Against Property</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Partners</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </div>
+    <div class="fbn">
+      <h5>Bank Partners</h5>
+      <div class="fbc">
+        <span class="fbch">HDFC</span><span class="fbch">ICICI</span><span class="fbch">Axis</span>
+        <span class="fbch">SBI</span><span class="fbch">Kotak</span><span class="fbch">Bajaj</span>
+        <span class="fbch">Tata Capital</span><span class="fbch">Poonawalla</span>
+        <span class="fbch">Fullerton</span><span class="fbch">Yes Bank</span>
+        <span class="fbch">IDFC First</span><span class="fbch">HDB Fin</span>
+      </div>
+    </div>
+  </div>
+  <div class="fdis">⚠️ <strong>Disclaimer:</strong> KnoxCredit (knoxcredit.in) is a loan DSA registered in India. We do not provide loans directly. All loans are sanctioned by RBI-regulated banks and NBFCs. Interest rates shown are indicative and subject to change. KnoxCredit does not charge borrowers any fee for loan facilitation services.</div>
+  <div class="fbot">
+    <span>© 2025 KnoxCredit. All rights reserved. | knoxcredit.in</span>
+    <span><a href="#">Privacy Policy</a> · <a href="#">Terms</a> · Made with ❤️ in India 🇮🇳</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/919XXXXXXXXX?text=Hi, I need a loan consultation from KnoxCredit" class="wa" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<div class="toast" id="toast">✅ Submitted! Our advisor will call you within 30 minutes.</div>
+
+<script>
+function calcEMI(){
+  const P=+document.getElementById('s1').value;
+  const r=+document.getElementById('s2').value/100/12;
+  const n=+document.getElementById('s3').value;
+  const emi=P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+  const total=emi*n;
+  const fmt=v=>'₹'+Math.round(v).toLocaleString('en-IN');
+  document.getElementById('emiBig').textContent=fmt(emi);
+  document.getElementById('eP').textContent=fmt(P);
+  document.getElementById('eI').textContent=fmt(total-P);
+  document.getElementById('eT').textContent=fmt(total);
+  document.getElementById('eTn').textContent=n+' months';
+  document.getElementById('sv1').textContent=fmt(P);
+  document.getElementById('sv2').textContent=document.getElementById('s2').value+'% p.a.';
+  document.getElementById('sv3').textContent=n+' Months';
+  [['s1',50000,5000000],['s2',7,24],['s3',6,84]].forEach(([id,mn,mx])=>{
+    const el=document.getElementById(id);
+    const p=(el.value-mn)/(mx-mn)*100;
+    el.style.background=`linear-gradient(to right,#1a4fa0 ${p}%,#dde6f5 ${p}%)`;
+  });
+}
+calcEMI();
+
+function submitForm(){
+  const n=document.getElementById('fn').value.trim();
+  const p=document.getElementById('fp').value.trim();
+  if(!n||!p){alert('Please enter your name and mobile number.');return;}
+  const l=document.getElementById('fl').value;
+  const a=document.getElementById('fa').value;
+  const e=document.getElementById('fe').value;
+  const c=document.getElementById('fc').value;
+  const t=document.getElementById('toast');
+  t.style.display='flex';
+  setTimeout(()=>t.style.display='none',5000);
+  const msg=`🔔 New Lead - KnoxCredit%0AName: ${n}%0APhone: ${p}%0ALoan: ${l}%0AAmount: ${a}%0AEmployment: ${e}%0ACity: ${c}`;
+  setTimeout(()=>window.open(`https://wa.me/919XXXXXXXXX?text=${msg}`,'_blank'),600);
+}
+
+function tfaq(el){
+  el.classList.toggle('open');
+  el.querySelector('span').textContent=el.classList.contains('open')?'×':'+';
+  el.nextElementSibling.classList.toggle('open');
+}
+</script>
+</body>
+</html>
